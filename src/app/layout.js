@@ -1,6 +1,7 @@
+
 import './globals.css'
 import { Mulish } from 'next/font/google'
-
+import NormalNavBarComponent from '@/components/NormalNavBarComponent';
 const mulish = Mulish({ subsets: ['latin'],weight:"400"})
 
 export const metadata = {
@@ -11,7 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={mulish.className}>{children}</body>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
+      <body className={mulish.className}>
+        <NormalNavBarComponent/>
+        {children}
+        </body>
     </html>
-  )
+  );
 }
