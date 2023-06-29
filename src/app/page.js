@@ -1,6 +1,6 @@
 
-import ProductCard from "@/components/FlpCardComponent"
 import AnimeCard from "@/components/AnimeCard";
+import SlideBarComponent from "@/components/SlideBarComponent";
 
 export default function Home() {
   return (
