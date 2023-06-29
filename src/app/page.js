@@ -1,12 +1,13 @@
-import CarouselComponent from '@/components/CarouselComponent'
-import SpinnerComponent from '@/components/SpinnerComponent'
+
+import ProductCard from "@/components/FlpCardComponent"
+import AnimeCard from "@/components/AnimeCard";
 
 export default function Home() {
   return (
-    <main className="container m-auto">
-      <div className="lg:gap-[13.3px] md:gap-8 w-auto flex flex-wrap justify-center grid-cols-3">
+    <main className="container m-auto ">
+      <div className=" w-auto flex flex-wrap justify-center align-middle mt-5">
         {/* to say */}
-        <CarouselComponent/>
+        <AnimeCard img_url={"./images/cambodia_remix.jpg"}/>
       </div>
     </main>
   );
