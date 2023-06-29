@@ -1,10 +1,14 @@
-'use client'
-import Example from '@/components/TabsComponent'
+
+import ProductCard from "@/components/FlpCardComponent"
+import AnimeCard from "@/components/AnimeCard";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Example/>
+    <main className="container m-auto ">
+      <div className=" w-auto flex flex-wrap justify-center align-middle mt-5">
+        {/* to say */}
+        <AnimeCard img_url={"./images/cambodia_remix.jpg"}/>
+      </div>
     </main>
   );
 }
