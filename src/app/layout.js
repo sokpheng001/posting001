@@ -1,7 +1,7 @@
 
 import './globals.css'
 import { Mulish } from 'next/font/google'
-import NormalNavBarComponent from '@/components/NormalNavBarComponent';
+import NormalNavBarComponent from '@/components/navbar&footer/NormalNavBarComponent';
 const mulish = Mulish({ subsets: ['latin'],weight:"400"})
 
 export const metadata = {

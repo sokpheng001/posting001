@@ -21,7 +21,7 @@ export default function NormalNavBarComponent() {
   }, []);
 // 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-row gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
+    <ul className="justify-center mb-4 mt-2  flex flex-row flex-wrap gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
       <Typography
         as="li"
         variant="small"
@@ -114,7 +114,7 @@ if(pathName==="/login"){
           className="mr-4 cursor-pointer py-1.5 font-bold text-lg"
         >
           <Link href={"/"}>
-              <img src={"/logo.ico"} className={"w-7 h-7 object-cover"} alt={"logo"}/>
+              <img src={"/logo.ico"} className={"w-7 h-7 object-cover"} alt={"logo"} />
           </Link>
         </Typography>
         {/* Nav List */}
@@ -175,13 +175,13 @@ if(pathName==="/login"){
       <MobileNav open={openNav}>
         <div className="container mx-auto">
           {navList}
-          <Button
-            size="sm"
-            fullWidth
-            className="mb-2 bg-blue-gray-100 shadow-none hover:shadow-blue-gray-50 text-black"
-          >
-            <span>Store Now</span>
-          </Button>
+          {/*<Button*/}
+          {/*  size="sm"*/}
+          {/*  fullWidth*/}
+          {/*  className=" bg-blue-gray-300 shadow-none hover:shadow-blue-gray-50 text-black"*/}
+          {/*>*/}
+          {/*  <span>Store Now</span>*/}
+          {/*</Button>*/}
         </div>
       </MobileNav>
     </Navbar>

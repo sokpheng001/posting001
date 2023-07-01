@@ -1,5 +1,5 @@
 
-import AnimeCard from "@/components/AnimeCard";
+import AnimeCard from "@/components/card/AnimeCard";
 import SlideBarComponent from "@/components/SlideBarComponent";
 
 export default function Home() {

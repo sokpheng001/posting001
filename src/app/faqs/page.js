@@ -4,7 +4,7 @@ import FaqComponent from "@/components/FaqComponent"
 
 
 export const metadata = {
-    title: "Cambodia Remix - FAQs",
+    title: "FAQs - Cambodia Remix",
     description: "Welcome to Cambodia Remix for FAQ section",
 };
 

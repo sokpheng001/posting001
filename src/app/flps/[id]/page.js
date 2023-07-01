@@ -1,4 +1,4 @@
-import ProductCard from "@/components/FlpCardComponent";
+import ProductCard from "@/components/card/FlpCardComponent";
 
 // export async function generateMetadata({ params, searchParams }, parent) {
 //   // read route params

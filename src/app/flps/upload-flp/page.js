@@ -1,4 +1,4 @@
-import FormikUploadComponent from "@/components/FormikUploadComponent";
+import FormikUploadComponent from "@/components/formik/FormikUploadComponent";
 
 
 

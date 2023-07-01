@@ -1,9 +1,9 @@
-import FlpCard from "@/components/FlpCardComponent";
+import FlpCard from "@/components/card/FlpCardComponent";
 import SpinnerComponent from "@/components/SpinnerComPonent"
 import {Suspense} from "react";
 
 export const metadata = {
-  title: "Cambodia Remix - FLPs",
+  title: "FLPs - Cambodia Remix",
   description: "Welcome to Cambodia Remix for production",
 };
 

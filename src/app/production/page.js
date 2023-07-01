@@ -1,6 +1,6 @@
 
 export const metadata = {
-    title: "Cambodia Remix - Production",
+    title: "Production - Cambodia Remix",
     description: "Welcome to Cambodia Remix for production",
 };
 

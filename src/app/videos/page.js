@@ -1,6 +1,6 @@
 
 export const metadata = {
-    title: "Cambodia Remix - Videos",
+    title: "Videos  - Cambodia Remix",
     description: "Video for music teaching",
 };
 

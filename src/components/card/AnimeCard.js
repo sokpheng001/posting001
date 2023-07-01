@@ -10,9 +10,10 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 
+
 export default function AnimeCard({id,name,price,description,img_url}) {
     return (
-        <Card className="w-80 border" shadow={false}>
+        <Card  className="w-80 border" shadow={false}>
             <CardHeader shadow={false} floated={false} className="h-64">
                 <Link href={`/products/${id}`}>
                     <img
