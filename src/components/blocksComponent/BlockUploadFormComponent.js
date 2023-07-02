@@ -1,5 +1,4 @@
 'use client'
-
 import {Field, Form, Formik,ErrorMessage} from "formik";
 import * as Yup from "yup"
 import {PiSubtitlesFill} from "react-icons/pi"
@@ -7,7 +6,7 @@ import {Button} from "@material-tailwind/react";
 import axios from "axios";
 //API
 import UPLOAD_FILE_API from "@/api/UPLOAD_FILE_API"
-import {useEffect,useState} from "react";
+import { useEffect, useState} from "react";
 
 
 // posting api
@@ -44,18 +43,19 @@ const initialValues =  {
 }
 
 
-export default function FormikUploadComponent(){
+export default function BlockUploadFormComponent(){
     const [backgroundUpload,setBackgroundUpload] = useState("");
+    const [hidden,setHidden] = useState("")
     return (
-        <div className={"grid grid-cols-1 lg:mt-10"}>
+        <div className={"grid grid-cols-1 "}>
             <Formik validationSchema={validators}  initialValues={initialValues} onSubmit={async (values,
-                                                                    {
-                                                                        setSubmitting,
-                                                                        setTouched,
-                                                                        setValues,
-                                                                        setErrors,
-                                                                        resetForm
-                                                                    }
+                                                                                                  {
+                                                                                                      setSubmitting,
+                                                                                                      setTouched,
+                                                                                                      setValues,
+                                                                                                      setErrors,
+                                                                                                      resetForm
+                                                                                                  }
             )=>{
                 alert(JSON.stringify(values));
             }}>
@@ -68,7 +68,7 @@ export default function FormikUploadComponent(){
                         errors,
                         handleChange
                     })=>(
-                    <Form onClick={(event)=>{event.type}} className={"mt-10 lg:p-8 p-8 m-2 lg:m-0 shadow-sm rounded-lg"}>
+                    <Form onClick={(event)=>{event.type}} className={"rounded-lg"}>
                         <label htmlFor="title" className="text-lg font-bold text-black tracking-wide">Title</label>
                         <div className="relative w-full mt-2">
                             {/*icon*/}
@@ -85,12 +85,13 @@ export default function FormikUploadComponent(){
                         {/*upload file*/}
                         <div className="grid grid-cols-1 space-y-2 mt-5 max-w-full">
                             <label htmlFor={"thumbnail"} className="text-lg font-bold text-black tracking-wide">Thumbnail</label>
-                            <div className="flex justify-center items-center md:flex hover:cursor-pointer">
+                            <div
+                                onClick={()=>{setBackgroundUpload(" bg-gray-200 border-white");setHidden(" hidden")}}
+                                className="flex justify-center items-center md:flex hover:cursor-pointer">
                                 <label
-                                    onClick={()=>{setBackgroundUpload(" bg-gray-200 border-white")}}
-                                    className={"md:w-1/2 w-full flex flex-col rounded-lg border-4 hover:cursor-pointer border-dashed  h-60 p-10 group text-center " + backgroundUpload}>
+                                    className={" md:w-1/2 w-full flex flex-col rounded-lg border-4 hover:cursor-pointer border-dashed  h-60 p-10 group text-center " + backgroundUpload}>
                                     <div
-                                        className="h-full w-full text-center flex flex-col items-center justify-center">
+                                        className={"h-full w-full text-center flex flex-col items-center justify-center " + hidden}>
                                         <p className="pointer-none text-gray-500 ">
                                             <span className="text-sm">Upload </span>
                                             <a id="" className="text-blue-gray-600 hover:underline animate-bounce">Thumbnail</a>
@@ -105,7 +106,7 @@ export default function FormikUploadComponent(){
                                 </label>
                             </div>
                         </div>
-                        {/*end*/}
+                        {/*end of upload file*/}
                         {/*description*/}
                         <div className={"grid grid-cols-1 space-y-2 mt-5"}>
                             <label htmlFor={"description"} className="text-lg font-bold text-black tracking-wide">Description</label>
@@ -113,18 +114,28 @@ export default function FormikUploadComponent(){
                                 id="description"
                                 component={"textarea"}
                                 name="description"
-                                className="mt-5 bg-gray-50 duration-10000 focus:bg-gray-200 focus:ring-gray-200 block w-full p-8 border border-gray-300 rounded-lg text-sm text-gray-800 focus:outline-0 focus:ring-0"
+                                className="mt-5 bg-gray-50 duration-10000 focus:bg-gray-200 focus:ring-gray-200 block w-full p-4 border border-gray-300 rounded-lg text-sm text-gray-800 focus:outline-0 focus:ring-0"
                                 placeholder="Write your description..."
                             />
                             <ErrorMessage name={"description"} component={"div"} className={"mt-2 text-red-500"} />
                         </div>
                         {/*end*/}
-                        <div className={"flex justify-center items-center"}>
-                            <Button type={"submit"}
-                                    disabled={isSubmitting}
-                                    className={"shadow-sm shadow-gray-200 hover:shadow-gray-200 hover:shadow-lg text-black bg-gray-300 p-2 rounded-lg w-56 h-10 mt-10"}>
-                                {"Post"}
-                            </Button>
+                        <div className={"md:float-right gap-4 flex justify-center"}>
+                            {/*group of button*/}
+                            <div className={"mt-5 flex flex-col w-full md:flex-row gap-4 items-center"}>
+                                {/*clear*/}
+                                <Button type={"reset"}
+                                        disabled={isSubmitting}
+                                        className={"w-full md:w-56 shadow-sm shadow-gray-200 hover:shadow-gray-200 hover:shadow-lg text-black bg-gray-300 p-2 rounded-lg h-10"}>
+                                    {"Clear"}
+                                </Button>
+                                {/*post*/}
+                                <Button type={"submit"}
+                                        disabled={isSubmitting}
+                                        className={"w-full md:w-56 shadow-sm shadow-gray-200 hover:shadow-gray-200 hover:shadow-lg text-black bg-gray-300 p-2 rounded-lg h-10 md:mt-0"}>
+                                    {"Post"}
+                                </Button>
+                            </div>
                         </div>
                     </Form>
                 )}
@@ -160,10 +171,12 @@ export const imageUploadPreview = ({
             setImagePreview(null);
         }
     }, [isSubmitting]);
+
     return (
-        <section>
+        <div className="grid grid-cols-1 space-y-2 max-w-full">
+        <section className={"rounded-lg w-full flex justify-center items-center"}>
             <input
-                className="bg-primary-red"
+                className=""
                 type="file"
                 onChange={(event) => {
                     form.setFieldValue(field.name, event.currentTarget.files[0]);
@@ -179,9 +192,10 @@ export const imageUploadPreview = ({
                 <img
                     src={imagePreview}
                     alt="preview"
-                    className="object-cover rounded-lg"
+                    className="object-cover rounded-lg h-1/2"
                 />
             )}
         </section>
+        </div>
     );
 };

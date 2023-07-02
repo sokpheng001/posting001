@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 
 
-export default function AnimeCard({id,name,price,description,img_url}) {
+export default function FlpDetailCard({id,name,price,description,img_url}) {
     return (
         <Card  className="w-80 border" shadow={false}>
             <CardHeader shadow={false} floated={false} className="h-64">
@@ -23,7 +23,7 @@ export default function AnimeCard({id,name,price,description,img_url}) {
                 </Link>
             </CardHeader>
             <CardBody>
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between ">
                     {/*  title*/}
                     <Typography color="blue-gray" className="font-medium">
                         {name ? (name.length>12) ? (name.substring(0,10)) + "...": (name) : ("Cambodia FLp")}
@@ -33,10 +33,11 @@ export default function AnimeCard({id,name,price,description,img_url}) {
                         Price: {price ? price + "$" : "Free"}
                     </Typography>
                 </div>
+                {/*description*/}
                 <Typography
                     variant="small"
                     color="gray"
-                    className="font-normal opacity-75"
+                    className="font-normal opacity-75 mt-1"
                 >
                     {description ? description.length > 35 ? description.substring(0, 35) + " ..." : description :
                         "With plenty of talk and listen time, voice-activated Siri access, and "

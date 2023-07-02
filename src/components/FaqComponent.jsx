@@ -22,8 +22,8 @@ export default function FAQ({question,answer}) {
   return (
     <Fragment>
       <Accordion open={open === 1} animate={customAnimation}>
-        <AccordionHeader onClick={() => handleOpen(1)}>
-          {question ? question : "What is Pagraph"}
+        <AccordionHeader onClick={() => handleOpen(1)} className={""}>
+          {question ? question : "What is ?"}
         </AccordionHeader>
         <AccordionBody>
           {answer ? (

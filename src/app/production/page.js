@@ -5,11 +5,12 @@ export const metadata = {
 };
 
 
-
-export default function Production(){
+export default function Loading(){
     return (
         <main className={"container m-auto"}>
+            <div className={"w-auto mt-4 flex flex-wrap justify-center gap-[13.34px] lg:gap-[13.34px]"}>
 
+            </div>
         </main>
     )
 }

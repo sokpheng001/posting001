@@ -26,7 +26,7 @@ export default function FlpCard({id,name,price,description,flp_img_url}) {
       </CardHeader>
       <CardBody>
         {/*  */}
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between">
           {/*  title*/}
           <Typography color="blue-gray" className="font-medium">
             {name ? (name.length>12) ? (name.substring(0,10)) + "...": (name) : ("Cambodia FLp")}
@@ -41,7 +41,7 @@ export default function FlpCard({id,name,price,description,flp_img_url}) {
         <Typography
           variant="small"
           color="gray"
-          className="font-normal opacity-75"
+          className="font-normal opacity-75 mt-1"
         >
           {description ? description.length>35 ? description.substring(0,35) + " ..." : description:
           "With plenty of talk and listen time, voice-activated Siri access, and "
@@ -52,7 +52,7 @@ export default function FlpCard({id,name,price,description,flp_img_url}) {
         <Button
           ripple={false}
           fullWidth={true}
-          className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
+          className=" bg-gray-300 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
         >
           Download Flp
         </Button>

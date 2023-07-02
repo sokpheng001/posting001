@@ -1,8 +1,9 @@
-import ProductCard from "@/components/card/FlpCardComponent";
+import ProductCard from "@/components/card/flpCard/FlpCardComponent";
+import FlpCardSkeletonComponent from "@/components/skeleton/flpCardSkeleton/FlpCardSkeletonComponent";
 
 // export async function generateMetadata({ params, searchParams }, parent) {
 //   // read route params
-//   const id = params.id;
+//   const uuid = params.uuid;
 //
 //   // fetch data
 //   const product = await fetch(`http://localhost:8080/api/v3/flps/${id}`);
@@ -19,7 +20,7 @@ import ProductCard from "@/components/card/FlpCardComponent";
 // }
 // fetch data
 
-const products = async (id) => {
+const products = async (uuid) => {
   // fetch data
   // const flp = await fetch(`http://localhost:8080/api/v3/flps/${id}`);
   // const json = await flp.json();
@@ -27,11 +28,12 @@ const products = async (id) => {
 };
 
 export default async function Product({ params }) {
-  const flp = await products(params.id) || [1];
+  const flp = await products(params.uuid) || [1];
   return (
     <main className="container m-auto">
       <div className=" mt-5 lg:gap-[13.34px] md:gap-8 gap-4 w-auto flex flex-wrap justify-center">
         <ProductCard />
+
       </div>
     </main>
   );

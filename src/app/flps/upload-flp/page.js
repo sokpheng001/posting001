@@ -1,4 +1,4 @@
-import FormikUploadComponent from "@/components/formik/FormikUploadComponent";
+import BlockUploadFormComponent from "@/components/blocksComponent/BlockUploadFormComponent";
 
 
 
@@ -9,6 +9,6 @@ export const metadata = {
 
 export default function UploadProduct(){
     return(
-        <FormikUploadComponent/>
+        <BlockUploadFormComponent/>
     )
 }

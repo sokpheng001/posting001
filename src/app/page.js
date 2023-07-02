@@ -1,13 +1,9 @@
 
-import AnimeCard from "@/components/card/AnimeCard";
-import SlideBarComponent from "@/components/SlideBarComponent";
-
 export default function Home() {
   return (
-    <main className="container m-auto ">
-      <div className=" w-auto flex flex-wrap justify-center align-middle mt-5">
+    <main className="container m-auto">
+      <div className="w-auto flex flex-wrap justify-center align-middle mt-4">
         {/* to say */}
-        <AnimeCard img_url={"./images/cambodia_remix.jpg"}/>
       </div>
     </main>
   );

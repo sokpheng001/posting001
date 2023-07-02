@@ -1,21 +1,31 @@
 'use client'
-import { useState, useEffect } from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-  Input,
-} from "@material-tailwind/react";
+import {useEffect, useState} from "react";
+import {Button, IconButton, MobileNav, Navbar, Typography,} from "@material-tailwind/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {usePathname} from "next/navigation";
 
 
- 
 export default function NormalNavBarComponent() {
   const [openNav, setOpenNav] = useState(false);
- 
+  // border
+    const pathName_1 = usePathname();
+    const border = (path,PathNameOnNavbar)=>{
+        if (pathName_1.includes(`/${path}`)){
+            return (
+                <Link href={`/${path}`} className="flex items-center border-b-2 ">
+                    {`${PathNameOnNavbar}`}
+                </Link>
+            )
+        }else{
+            return (
+                <Link href={`${path}`} className="flex items-center">
+                    {`${PathNameOnNavbar}`}
+                </Link>
+            )
+        }
+    }
+
+
   useEffect(() => {
     window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
   }, []);
@@ -28,9 +38,7 @@ export default function NormalNavBarComponent() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link href="/" className="flex items-center">
-          Home
-        </Link>
+          {border("/","Home")}
       </Typography>
       <Typography
         as="li"
@@ -38,9 +46,7 @@ export default function NormalNavBarComponent() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link href="/flps" className="flex items-center">
-          FLPs
-        </Link>
+          {border("/flps","FLPs")}
       </Typography>
       {/*  videos*/}
         <Typography
@@ -49,9 +55,7 @@ export default function NormalNavBarComponent() {
             color="blue-gray"
             className="p-1 font-normal"
         >
-            <Link href="/videos" className="flex items-center">
-                Videos
-            </Link>
+            {border("/videos","Videos")}
         </Typography>
       <Typography
         as="li"
@@ -59,9 +63,7 @@ export default function NormalNavBarComponent() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link href="/blocks" className="flex items-center">
-          Blocks
-        </Link>
+          {border("/blocks","Blocks")}
       </Typography>
       {/*  */}
         <Typography
@@ -70,9 +72,7 @@ export default function NormalNavBarComponent() {
             color="blue-gray"
             className="p-1 font-normal"
         >
-            <Link href="/production" className="flex items-center">
-                Production
-            </Link>
+            {border("/production","Production")}
         </Typography>
       <Typography
         as="li"
@@ -80,9 +80,7 @@ export default function NormalNavBarComponent() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link href="/about-us" className="flex items-center">
-          About Us
-        </Link>
+          {border("/faqs","FAQs")}
       </Typography>
       <Typography
         as="li"
@@ -90,9 +88,7 @@ export default function NormalNavBarComponent() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link href="/faqs" className="flex items-center">
-          FAQs
-        </Link>
+          {border("/about-us","About us")}
       </Typography>
     </ul>
   );
@@ -106,27 +102,22 @@ if(pathName==="/login"){
   return (
     <Navbar
       shadow={false}
-      className="mx-auto py-2 px-4 lg:px-8 lg:py-4 border-b-blue-gray-50 rounded-none"
+      className="mx-auto py-2 px-4 lg:px-8 lg:py-4 border-b-gray-300 rounded-none"
     >
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
-          href="#"
-          className="mr-4 cursor-pointer py-1.5 font-bold text-lg"
-        >
-          <Link href={"/"}>
-              <img src={"/logo.ico"} className={"w-7 h-7 object-cover"} alt={"logo"} />
+          <Link href={"/"} className={"m-2"}>
+              <p className={"font-bold bold text-lg"}>Cambodia Remix</p>
           </Link>
-        </Typography>
         {/* Nav List */}
         <div className="hidden lg:block">{navList}</div>
         {/*  */}
         {/* search button */}
         <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="gray">
+          <Button variant="text" size="sm" color="gray" className={"hover:shadow-gray-50 hover:bg-gray-200"}>
             Sign In
           </Button>
           <Button
-            className="bg-blue-gray-100 shadow-none hover:shadow-blue-gray-50 text-black"
+            className="bg-gray-300 shadow-none hover:shadow-gray-50 text-black"
             size="sm"
           >
             Sign Up
@@ -135,8 +126,8 @@ if(pathName==="/login"){
         {/* end  */}
         <IconButton
           variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
+          className="p-4 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          ripple={true}
           onClick={() => setOpenNav(!openNav)}
         >
           {openNav ? (
