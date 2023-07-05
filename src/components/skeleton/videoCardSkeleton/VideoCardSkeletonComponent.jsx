@@ -31,6 +31,7 @@ export default function VideoCardSkeletonComponent() {
                     <div className="space-y-3 ml-3 w-full">
                         <div className="grid grid-cols-3 gap-4">
                             <div className="h-2 bg-gray-500 rounded col-span-2"></div>
+                            <div className="h-2 bg-gray-500 rounded col-span-2 w-16 -mt-1"></div>
                         </div>
                     </div>
                 </div>

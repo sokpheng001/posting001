@@ -1,8 +1,12 @@
 'use client'
-import {useEffect, useState} from "react";
-import {Button, IconButton, MobileNav, Navbar, Typography,} from "@material-tailwind/react";
+import React, {useEffect, useState} from "react";
+import {Button, IconButton, MobileNav, Navbar, Typography,Input} from "@material-tailwind/react";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
+import {Formik} from "formik";
+import * as yup from "yup"
+
+
 
 
 export default function NormalNavBarComponent() {
@@ -92,10 +96,37 @@ export default function NormalNavBarComponent() {
       </Typography>
     </ul>
   );
-//  end of navlist
+//  end of nav list
+//     search input
+//     yup
+    const yupValidators = yup.object({
+        search:yup.string()
+    })
+    // search
+    const searchInput = (
+        <section className={"flex justify-center"}>
+            {/* search button */}
+            <div className="relative flex w-full gap-2 md:w-max">
+                <Input
+                    type="search"
+                    label="Search here..."
+                    className="pr-10 border-gray-300 focus:border-t-0 text-black shadow-none focus:shadow-none min-w-[500px]"
+                    color={"gray"}
+                    value={""}
+                />
+                <Button size="sm" className="!absolute right-1 top-1 rounded bg-gray-300 text-black shadow-none hover:shadow-none" >
+                    <Link href={"/videos"}>
+                        Search
+                    </Link>
+                </Button>
+            </div>
+            {/*  end of search*/}
+        </section>
+    )
 // path name
+
 const pathName = usePathname();
-if(pathName==="/login"){
+if(pathName==="/login" || pathName.includes("/admin")){
   return null;
 }
 // 
@@ -104,14 +135,20 @@ if(pathName==="/login"){
       shadow={false}
       className="mx-auto py-2 px-4 lg:px-8 lg:py-4 border-b-gray-300 rounded-none"
     >
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      <div className="container mx-auto flex items-center justify-between text-black">
           <Link href={"/"} className={"m-2"}>
-              <p className={"font-bold bold text-lg"}>Cambodia Remix</p>
+              <Typography
+                  className="mr-4 ml-2 cursor-pointer py-1.5 font-bold text-lg"
+              >
+                  Cambodia Remix
+              </Typography>
           </Link>
         {/* Nav List */}
-        <div className="hidden lg:block">{navList}</div>
+        <div className="hidden lg:block">
+            {/*{navList}*/}
+            {searchInput}
+        </div>
         {/*  */}
-        {/* search button */}
         <div className="hidden gap-2 lg:flex">
           <Button variant="text" size="sm" color="gray" className={"hover:shadow-gray-50 hover:bg-gray-200"}>
             Sign In
@@ -122,6 +159,7 @@ if(pathName==="/login"){
           >
             Sign Up
           </Button>
+
         </div>
         {/* end  */}
         <IconButton
@@ -162,6 +200,11 @@ if(pathName==="/login"){
           )}
         </IconButton>
       </div>
+        {/*search input*/}
+        <div className={'m-2 hidden md:block'}>
+            {/*{searchInput}*/}
+        </div>
+      {/*  end */}
       {/*  */}
       <MobileNav open={openNav}>
         <div className="container mx-auto">

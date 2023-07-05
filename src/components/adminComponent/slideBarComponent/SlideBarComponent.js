@@ -1,5 +1,6 @@
 'use client'
 import React from "react";
+import {CiMusicNote1} from "react-icons/ci"
 import {
     Card,
     Typography,
@@ -11,7 +12,7 @@ import {
     Accordion,
     AccordionHeader,
     AccordionBody,
-    Alert,
+    Alert, Avatar,
 } from "@material-tailwind/react";
 import {
     PresentationChartBarIcon,
@@ -20,14 +21,17 @@ import {
     Cog6ToothIcon,
     InboxIcon,
     PowerIcon,
+    MusicalNoteIcon,
+
 } from "@heroicons/react/24/solid";
 import {
     ChevronRightIcon,
     ChevronDownIcon,
     CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
-export default function Example() {
+export default function SlideBarComponent() {
     const [open, setOpen] = React.useState(0);
     const [openAlert, setOpenAlert] = React.useState(true);
 
@@ -36,11 +40,11 @@ export default function Example() {
     };
 
     return (
-        <Card className="fixed hidden md:block left-4 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+        <Card className=" h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-gray-900/5 rounded-none">
             <div className="mb-2 flex items-center gap-4 p-4">
-                <img src="/images/cambodia_remix.jpg" alt="brand" className="h-8 w-8" />
-                <Typography variant="h5" color="blue-gray">
-                    Sidebar
+                <MusicalNoteIcon className={"w-12 h-12"}/>
+                <Typography variant="h5" className={"text-gray-50"}>
+                    Cambodia Remix Admin
                 </Typography>
             </div>
             <List>
@@ -101,7 +105,7 @@ export default function Example() {
                                 <ShoppingBagIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             <Typography color="blue-gray" className="mr-auto font-normal">
-                                E-Commerce
+                                Production
                             </Typography>
                         </AccordionHeader>
                     </ListItem>
@@ -151,10 +155,11 @@ export default function Example() {
                     Log Out
                 </ListItem>
             </List>
-            <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
-                <CubeTransparentIcon className="mb-4 h-12 w-12" />
+            <Alert open={openAlert} className="mt-auto bg-gray-500" onClose={() => setOpenAlert(false)}>
+                {/*<CubeTransparentIcon className="mb-4 h-12 w-12" />*/}
+                <MusicalNoteIcon className={"mb-4 h-12 w-12"}/>
                 <Typography variant="h6" className="mb-1">
-                    Upgrade to PRO
+                    Welcome to Admin
                 </Typography>
                 <Typography variant="small" className="font-normal opacity-80">
                     Upgrade to Material Tailwind PRO and get even more components, plugins, advanced features

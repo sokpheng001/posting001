@@ -29,14 +29,22 @@ export default function VideoCardComponent({uuid,chanel_name,description,flp_vid
             <CardBody>
                 {/*  */}
                 {/*avatar*/}
-                <Link href={`musician/profile/${uuid}`} className={"flex items-center justify-between"}>
-                    <Avatar className={"w-16 h-12 object-cover"} src={"/images/cambodia_remix.jpg"}/>
+                <div className={"flex items-center"}>
+                <Link href={`musician/profile/${uuid}`} className={""}>
+                    <Avatar className={"w-[60px] h-12"} src={`/images/cambodia_remix.jpg`}/>
                     {/*end of*/}
-                    {/* channel name */}
-                    <Typography color="blue-gray" className="ml-3 font-bold w-full">
-                        {chanel_name ? (chanel_name.length>12) ? (chanel_name.substring(0,10)) + "...": (chanel_name) : ("Cambodia FLp")}
-                    </Typography>
                 </Link>
+                    <div className={"w-full"}>
+                        {/* channel name */}
+                        <Typography as={"a"} href={""} color="black" className="ml-3 font-bold">
+                            {chanel_name ? (chanel_name.length>12) ? (chanel_name.substring(0,10)) + "...": (chanel_name) : ("Cambodia FLp")}
+                        </Typography>
+                    {/*    created date*/}
+                        <Typography as={"p"} className="ml-3 font-normal text-[13px] text-gray-500 ">
+                            {`${`8pm - June-12-2023`}`}
+                        </Typography>
+                    </div>
+                </div>
                 {/*  */}
                 {/*  description*/}
                 <Link href={``}>

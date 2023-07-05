@@ -25,7 +25,7 @@ export default async function Product() {
         {products.map((e,index) => (
             <Suspense fallback={SpinnerComponent} key={index}>
                 <FlpCard id={e.id} name={e.pd_name} description={e.pd_des} img_url={e.pd_img} price={e.pd_price}/>
-                <FlpCardSkeletonComponent/>
+                {/*<FlpCardSkeletonComponent/>*/}
             </Suspense>
         ))}
       </div>

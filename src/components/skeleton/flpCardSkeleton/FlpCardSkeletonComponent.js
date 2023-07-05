@@ -29,9 +29,16 @@ export default function FlpCardSkeletonComponent() {
                     {/*  price*/}
                     <div className="h-2 bg-gray-500 rounded col-span-1"></div>
                 </div>
+                {/*author and price*/}
+                <div className="grid grid-cols-3 mt-4 gap-4">
+                    {/*  title*/}
+                    <div className="h-2 bg-gray-500 rounded w-32 col-span-2"></div>
+                    {/*  price*/}
+                    <div className="h-2 bg-gray-500 rounded col-span-1"></div>
+                </div>
                 {/*  */}
                 {/*  description*/}
-                <div className={"mt-5"}>
+                <div className={"mt-7"}>
                     <div className="h-2 bg-gray-500 rounded"></div>
                     <div className="h-2 mt-3.5 bg-gray-500 rounded w-56"></div>
                     <div className="h-2 mt-3.5 bg-gray-500 rounded w-40"></div>

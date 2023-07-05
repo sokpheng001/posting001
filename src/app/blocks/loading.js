@@ -1,7 +1,7 @@
 export default function BlockLoading(){
     return (
         <main>
-            Loading ...
+            Blocks loading ...
         </main>
     )
 }
