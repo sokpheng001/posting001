@@ -15,7 +15,7 @@ const  flp_img_url_default = "/images/cambodia_remix.jpg";
 
 export default function VideoCardComponent({uuid,chanel_name,description,flp_video_url,video_thumbnail}) {
     return (
-        <Card className="w-80 border-none shadow-none" shadow={false}>
+        <Card className="w-80 border-none shadow-none dark:bg-black " shadow={false}>
             <CardHeader shadow={false} floated={false} className="h-64">
                 {/*video thumbnail*/}
                 <Link href={`/videos/${uuid}`} className={"rounded-none"}>
@@ -36,7 +36,7 @@ export default function VideoCardComponent({uuid,chanel_name,description,flp_vid
                 </Link>
                     <div className={"w-full"}>
                         {/* channel name */}
-                        <Typography as={"a"} href={""} color="black" className="ml-3 font-bold">
+                        <Typography as={"a"} href={""} color="black" className="ml-3 font-bold dark:text-white dark:font-normal">
                             {chanel_name ? (chanel_name.length>12) ? (chanel_name.substring(0,10)) + "...": (chanel_name) : ("Cambodia FLp")}
                         </Typography>
                     {/*    created date*/}

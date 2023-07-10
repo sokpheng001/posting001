@@ -14,9 +14,10 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
-    <html lang="en">
-      <body className={mulish.className}>
+    <html lang="en" className={""}>
+      <body className={mulish.className + "bg-white dark:bg-black"}>
         <NormalNavBarComponent/>
         {children}
         </body>

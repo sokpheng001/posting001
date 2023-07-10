@@ -33,6 +33,7 @@ module.exports = withMT({
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+
     extend: {
       animation:{
         'bounce-slow':'bounce 10s linear infinite',
